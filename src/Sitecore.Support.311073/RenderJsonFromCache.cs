@@ -56,7 +56,10 @@
       {
         return false;
       }
-      renderedRenderingContext.AddRenderedRendering(renderedJsonRendering, renderingIdFromStub.Value);
+      if (renderedRenderingContext.GetRenderedRendering(renderingIdFromStub.Value) == null)
+      {
+        renderedRenderingContext.AddRenderedRendering(renderedJsonRendering, renderingIdFromStub.Value);
+      }
       writer.Write(html);
       return true;
     }
